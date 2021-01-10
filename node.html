@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- 新增 -->
+<!-- 生成列表结构 v-for字符串 -->
+<!-- 获取用户输入 v-model双向数据绑定-->
+<!-- 回车新增数据 v-on .enter-->
+<!-- 删除 -->
+<!-- 统计 -->
+<!-- 清空 -->
+<!-- 隐藏 -->
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title></title>
+	</head>
+
+	<body>
+		<!-- 主体区域 -->
+		<section id="todoapp">
+			<!-- 输入框 -->
+			<header class="header">
+				<h1>小黑笔记本</h1>
+				<input autofocus="autofocus" autocomplete="off" placeholder="请输入任务" class="new-todo" />
+			</header>
+			<!-- 列表区域 -->
+			<section class="main">
+				<ul class="todo-list">
+					<li class="todo" v-for="(items,index) in arr">
+						<div id="view">
+							<span class="index">{{ index+1 }}.</span>
+							<label>{{ items }}</label>
+							<button class="destroy"></button>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<!-- 统计和清空 -->
+			<footer class="info">
+
+			</footer>
+		</section>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#todoapp",
+				data: {
+					arr: ["写代码", "吃饭饭", "睡觉觉", "打豆豆"]
+				}
+			})
+		</script>
+	</body>
+
+</html>

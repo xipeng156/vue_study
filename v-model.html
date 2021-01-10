@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 设置和获取表单元素的值（双向数据绑定） -->
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<input type="button" value="修改message" @click="setM()" />
+			<input type="text" v-model="message" @keyup.enter="getM()"/>
+			<h2>{{message}}</h2>
+		</div>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.min.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#app",
+				data: {
+					message:"test"
+				},
+				methods:{
+					getM:function(){
+						alert(this.message)
+					},
+					setM:function(){
+						this.message="test2"
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

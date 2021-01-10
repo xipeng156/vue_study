@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- 自定义参数 -->
+<!-- 事件修饰符 @keyup.enter="sayHi" -->
+<!-- 修饰符地址：https://cn.vuejs.org/v2/api/#v-on -->
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<input type="button" @click="doIt(666,'老铁')" value="点击"/>
+			<input type="text" @keyup.enter="sayHi" />
+		</div>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.min.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#app",
+				data: {
+				
+				},
+				methods:{
+					doIt:function(p1,p2){
+						console.log("做It")
+						console.log(p2+p1)
+					},
+					sayHi:function(){
+						alert("吃了没")
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

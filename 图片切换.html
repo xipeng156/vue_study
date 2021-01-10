@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 图片切换逻辑 -->
+<!-- 定义一个数组，同时定义一个索引 -->
+<!-- 将图片路径放在数组中，用数组【索引】的形式控制读取图片 -->
+<!-- 图片读取用   :src -->
+<!-- 设置两个method为更改图片使用 -->
+<!-- 更改图片逻辑为：索引++、索引-- -->
+
+<!-- 按钮隐藏逻辑 -->
+<!-- v-show判断if index！=0 -->
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- 图片 -->
+			<img :src="imageArray[index]" width="400px" height="400px">
+			<br>
+			<!-- 左箭头 -->
+			<a class="left">
+				<!-- <img src="image/left.jpg" @click="prev()"> -->
+				<input type="button" v-show="index!=0" value="上一张" @click="prev()"/>
+			</a>
+			第{{ index+1 }}张
+			<!-- 右箭头 -->
+			<a class="right">
+				<!-- <img src="image/right.jpg" @click="next()"> -->
+				<input type="button" v-show="index<imageArray.length-1" value="下一张" @click="next()"/>
+			</a>
+		</div>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.min.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#app",
+				data: {
+					index:0,
+					imageArray:[
+						"./image/0001.png",
+						"./image/0002.png",
+						"./image/0003.png",
+						"./image/0004.png",
+						"./image/0005.png",
+						"./image/0006.png",
+						"./image/0007.png",
+						"./image/0008.png",
+						"./image/0009.png",
+						"./image/0010.png",
+						"./image/0011.png",
+						"./image/0012.png",
+						"./image/0013.png",
+						"./image/0014.png",
+						"./image/0015.png",
+						"./image/0016.png",
+						"./image/0017.png",
+						"./image/0018.png",
+						"./image/0019.png",
+						"./image/0020.png",
+						"./image/0021.png",
+						"./image/0022.png",
+						"./image/0023.png",
+						"./image/0024.png",
+						"./image/0025.png",
+						"./image/0026.png",
+						"./image/0027.png",
+						"./image/0028.png",
+						"./image/0029.png",
+						"./image/0030.png",
+						"./image/0031.png",
+						"./image/0032.png",
+						"./image/0033.png",
+						"./image/0034.png",
+						"./image/0035.png"
+					]
+				},
+				methods:{
+					prev:function(){
+						this.index--
+					},
+					next:function(){
+						this.index++
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

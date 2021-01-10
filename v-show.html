@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 根据表达式的真假，切换元素的显示和隐藏-->
+<!-- 本质切换元素的display -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- <img src={{ img1 }} > -->
+			<input type="button" value="显示状态" @click="changeShow()"></input>
+			<img src="image/0001.png" v-show= "isShow">
+			<input type="button" value="加一岁" @click="addAge()"/>
+			<img src="image/0002.png" v-show= "age>=18">
+		</div>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.min.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#app",
+				data: {
+					img1:"image/a.jpg",
+					isShow:false,
+					age:17
+				},
+				methods:{
+					changeShow:function(){
+						this.isShow = !this.isShow;
+					},
+					addAge:function(){
+						this.age++;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

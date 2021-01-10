@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 根据表达式真假切换元素的显示状态 -->
+<!-- v-if操作dom数 -->
+<!-- 消耗资源 -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<input type="button" value="切换显示" @click="toggleIsShow()" />
+			<p v-if="isShow">黑马</p>
+			<h2 v-if="temperature>=35">热死啦</h2>
+		</div>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.min.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#app",
+				data: {
+					isShow:false,
+					temperature:10
+				},
+				methods:{
+					toggleIsShow:function(){
+						this.isShow = !this.isShow
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

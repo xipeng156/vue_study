@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- <div class="input-num"> -->
+			<button @click="del()">-</button>
+			<span>{{ num }}</span>
+			<button @click="add()">+</button>
+			<!-- </div> -->
+			<!-- <img src="https://www.itheima.com/images/log.png" > -->
+		</div>
+		<!-- 生产环境版本，优化了尺寸和速度 -->
+		<script src="js/vue.min.js"></script>
+		<script>
+			var app = new Vue({
+				// 两个大括号修饰
+				el: "#app",
+				data: {
+					num: 1
+				},
+				methods: {
+					add: function() {
+						console.log("add");
+						if (this.num < 10) {
+							this.num++;
+						} else alert("最大为10");
+					},
+					del: function() {
+						console.log("del")
+						if (this.num > 0) {
+							this.num--;
+						} else alert("最小为1")
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

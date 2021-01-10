@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<h1 v-text="message"></h1>
+			<h1 v-text="info+'i'">深圳</h1>
+			<h1>{{message}}深圳</h1>
+			<h1>{{message+'i'}}</h1>
+		</div>
+		<script src="js/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					message: "tests",
+					info:"infoTest"
+				}
+			})
+		</script>
+	</body>
+</html>
