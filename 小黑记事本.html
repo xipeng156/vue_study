@@ -3,10 +3,10 @@
 <!-- 生成列表结构 v-for字符串 -->
 <!-- 获取用户输入 v-model双向数据绑定-->
 <!-- 回车新增数据 v-on .enter-->
-<!-- 删除 -->
-<!-- 统计 -->
-<!-- 清空 -->
-<!-- 隐藏 -->
+<!-- 删除 @click触发删除事件，this.arr.splice(index,1)删除数组 -->
+<!-- 统计 arr.length-->
+<!-- 清空 设置数组为空-->
+<!-- 隐藏 v-show v-if 为空-->
 <html lang="en">
 
 	<head>
@@ -23,7 +23,8 @@
 			<!-- 输入框 -->
 			<header class="header">
 				<h1>小黑笔记本</h1>
-				<input autofocus="autofocus" autocomplete="off" placeholder="请输入任务" class="new-todo" />
+				<input autofocus="autofocus" autocomplete="off" placeholder="请输入任务" class="new-todo" 
+				v-model="inputValue" @keyup.enter="add()"/>
 			</header>
 			<!-- 列表区域 -->
 			<section class="main">
@@ -32,14 +33,17 @@
 						<div id="view">
 							<span class="index">{{ index+1 }}.</span>
 							<label>{{ items }}</label>
-							<button class="destroy"></button>
+							<button class="destroy" @click="remote(index)"></button>
 						</div>
 					</li>
 				</ul>
 			</section>
 			<!-- 统计和清空 -->
-			<footer class="info">
-
+			<footer class="footer">
+				<span class="todo-count" v-if="arr.length!=0">
+					<strong>{{ arr.length }}</strong>items left</span>
+				</span>
+				<button class="clear-completed" @click="clear()" v-show="arr.length!=0">Clear</button>
 			</footer>
 		</section>
 		<!-- 生产环境版本，优化了尺寸和速度 -->
@@ -49,7 +53,20 @@
 				// 两个大括号修饰
 				el: "#todoapp",
 				data: {
-					arr: ["写代码", "吃饭饭", "睡觉觉", "打豆豆"]
+					arr: [],
+					inputValue:""
+				},
+				methods:{
+					add:function(){
+						this.arr.push(this.inputValue)
+					},
+					remote:function(index){
+						console.log(index)
+						this.arr.splice(index,1)
+					},
+					clear:function(){
+						this.arr=[];
+					}
 				}
 			})
 		</script>
