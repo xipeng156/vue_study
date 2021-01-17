@@ -31,6 +31,10 @@ var app = new Vue({
 			.catch(function(err){
 				
 			})
+		},
+		changeCity:function(city){
+			this.city = city;
+			this.searchWhather();
 		}
 	}
 })
