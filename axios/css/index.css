@@ -19,12 +19,13 @@ body{
 }
 .logo img{
     display:block;
-    margin:0 auto;
+    margin:60px auto;
 }
 .form_group{
     width:640px;
     height:40px;
     margin-top:45px;
+	margin: 45px auto 0;
 }
 .input_txt{
    width:538px;
